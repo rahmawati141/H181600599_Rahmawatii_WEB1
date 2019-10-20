@@ -5,8 +5,7 @@
     <label for="judul" class="col-md-4 col-form-label text-md-right">{{ __('Judul') }}</label>
 
     <div class="col-md-6">
-        <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required >
-
+    <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required >
         @error('judul')
         <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

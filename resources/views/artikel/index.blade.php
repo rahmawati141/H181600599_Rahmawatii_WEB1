@@ -17,6 +17,7 @@
                     <td> Users Id</td>
                     <td> Kategori Id </td>
                     <td> Create </td>
+                    
                     <td> Aksi </td>
                 </tr>
 
@@ -29,8 +30,11 @@
                     <td>{!!$item->users_id!!}</td>
                     <td>{!!$item->kategori_artikel_id!!}</td>
                     <td>{!!$item->created_at!!}</td>
+                    
                     <td>
-                    <a href={!! route('artikel.show', [$item->id]) !!}>Lihat</a>
+                    <a href="{!! route('artikel.show', [$item->id]) !!}" class="btn btn-primary">Lihat</a>
+                    
+
                     </td>
                 </tr>
                 @endforeach
