@@ -28,10 +28,27 @@ class GaleriController extends Controller
     }
 
     public function store(Request $request){
-        $input= $request->all();
+        $input= $request->except('path');
 
-     Galeri::create($input);
-    
+     $galeri=Galeri::create($input);
+     if ($request->has('path')){
+         $file=$request->file('path');
+         $filename=$galeri->id.'.'.$file->getClientOriginalExtension();
+         $path=$request->path->storeAs('public/galeri',$filename,'local');
+         $galeri->path="storage". substr($path,strpos($path, '/'));
+         $galeri->save();
+     }
         return redirect(route('galeri.index'));
     }
+
+    public function edit($id){
+        $galeri=Galeri::find($id);
+
+    if(empty($galeri)){
+        return redirect(route('galeri.index'));
+    }
+        $listKategoriGaleri=KategoriGaleri::pluck('nama','id');
+        return view('galeri.edit',compact('galeri','listKategoriGaleri'));
+    }
+
 }

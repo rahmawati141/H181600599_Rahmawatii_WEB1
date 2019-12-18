@@ -48,7 +48,7 @@
     <label for="path" class="col-md-4 col-form-label text-md-right">{{ __('Path') }}</label>
 
     <div class="col-md-6">
-        <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}" required autofocus>
+       {!! Form::file('path', null,['class'=>'form-control']); !!}
 
         @error('path')
         <span class="invalid-feedback" role="alert">

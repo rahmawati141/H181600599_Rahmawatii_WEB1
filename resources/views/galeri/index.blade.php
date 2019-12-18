@@ -27,7 +27,7 @@
                     <td>{!!$item->id!!}</td>
                     <td>{!!$item->nama!!}</td>
                     <td>{!!$item->keterangan!!}</td>
-                    <td>{!!$item->path!!}</td>
+                    <td><img src="{!! asset($item->path) !!}" width="100px"></td>
                     <td>{!!$item->users_id!!}</td>
                     <td>{!!$item->created_at!!}</td>
                     <td>{!!$item->kategori_galeri_id!!}</td>

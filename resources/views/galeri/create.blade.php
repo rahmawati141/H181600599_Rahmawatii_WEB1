@@ -8,12 +8,20 @@
                 <div class="card-header">Tambah Galeri</div>
 
                 <div class="card-body">
-                    <form method="post" action="{!! route('galeri.store') !!}" >
+                    {!! Form::open(['route'=>'galeri.store','files'=>true]) !!}
                         @include('galeri.form')
-                    </form>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
     </div>
+@endsection
+
+@section('scripts')
+<script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
+<script>
+$(document).ready(function() {
+    CKEDITOR.replace('isi');
+});
 @endsection
